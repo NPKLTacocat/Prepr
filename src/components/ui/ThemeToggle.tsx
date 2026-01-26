@@ -1,0 +1,57 @@
+"use client";
+
+import { Moon, Sun, Monitor } from "lucide-react";
+import { useTheme } from "next-themes";
+
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+
+const themes = [
+  { name: "Light", Icon: Sun, value: "light" },
+  { name: "Dark", Icon: Moon, value: "dark" },
+  { name: "System", Icon: Monitor, value: "system" },
+] as const;
+
+export function ThemeToggle() {
+  const [mounted, setMounted] = useState(false);
+  const { setTheme, theme, resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="icon">
+          {resolvedTheme === "light" ? <Sun /> : <Moon />}
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {themes.map(({ name, Icon, value }) => (
+          <DropdownMenuItem
+            key={value}
+            onClick={() => setTheme(value)}
+            className={cn(
+              "cursor-pointer",
+              theme === value && "bg-accent text-accent-foreground",
+            )}
+          >
+            <Icon className="mr-2 h-4 w-4" />
+            {name}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
