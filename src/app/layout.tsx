@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@/services/clerk/components/ClerkProvider";
 import { ThemeProvider } from "next-themes";
-
-const interSans = Inter({
-  variable: "--font-inter-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,7 +16,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={`${interSans.variable} antialiased font-sans`}>
+        <body className="antialiased font-sans">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
