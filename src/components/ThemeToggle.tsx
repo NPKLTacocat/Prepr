@@ -47,7 +47,7 @@ export function ThemeToggle() {
               theme === value && "bg-accent text-accent-foreground",
             )}
           >
-            <Icon className="mr-2 h-4 w-4" />
+            <Icon className="mr-2" />
             {name}
           </DropdownMenuItem>
         ))}

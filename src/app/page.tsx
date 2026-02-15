@@ -1,5 +1,5 @@
 import { SignInButton, UserButton } from "@clerk/nextjs";
-import { ThemeToggle } from "../components/ui/ThemeToggle";
+import { ThemeToggle } from "../components/ThemeToggle";
 
 export default function HomePage() {
   return (
