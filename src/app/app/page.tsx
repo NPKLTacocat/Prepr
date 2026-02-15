@@ -51,7 +51,9 @@ function NoJobInfos() {
         the better Prepr can assist you in your interview preparation!
       </p>
       <Card>
-        <CardContent></CardContent>
+        <CardContent>
+          <JobInfoForm />
+        </CardContent>
       </Card>
     </div>
   );

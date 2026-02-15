@@ -2,7 +2,6 @@
 
 import { useClerk } from "@clerk/nextjs";
 import { BrainCircuitIcon, LogOut, User } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import Link from "next/link";
-import { UserAvatar } from "@/components/UserAvatar";
+import { UserAvatar } from "@/features/users/components/UserAvatar";
 
 export function Navbar({ user }: { user: { name: string; imageUrl: string } }) {
   const { openUserProfile, signOut } = useClerk();
