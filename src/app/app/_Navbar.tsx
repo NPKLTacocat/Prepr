@@ -16,7 +16,7 @@ export function Navbar({ user }: { user: { name: string; imageUrl: string } }) {
   const { openUserProfile, signOut } = useClerk();
 
   return (
-    <nav className="h-header flex items-center justify-between border-b p-4">
+    <nav className="h-header flex items-center justify-between border-b-2 p-4">
       <Link href={"/app"} className="flex items-center gap-2">
         <BrainCircuitIcon className="size-6 text-primary" />
         <span className="text-lg font-semibold">Prepr</span>
