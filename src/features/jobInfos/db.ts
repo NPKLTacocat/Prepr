@@ -37,8 +37,6 @@ export async function getJobInfo(id: string, userId: string) {
   "use cache";
   cacheTag(getJobInfoIdTag(id));
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
   return db.query.JobInfoTable.findFirst({
     where: and(eq(JobInfoTable.id, id), eq(JobInfoTable.userId, userId)),
   });
